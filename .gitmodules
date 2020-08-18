@@ -1,0 +1,3 @@
+[submodule "patin_controller"]
+	path = patin_controller
+	url = https://github.com/aratasakamaki/patin_controller.git
