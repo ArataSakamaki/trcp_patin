@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<robot name="patin" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <xacro:include filename="$(find patin_description)/urdf/body.urdf.xacro"/>
+  <xacro:include filename="$(find patin_description)/urdf/wheel.urdf.xacro"/>
+  <xacro:include filename="$(find patin_description)/urdf/lidar.urdf.xacro"/>
+  <xacro:include filename="$(find patin_description)/urdf/astra.urdf.xacro"/>
+  
+  <link name="base_footprint"/>
+  <link name="base_link"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <xacro:base parent="base_link">
+    <origin xyz="0 0 0"/>
+  </xacro:base>
+
+  <xacro:wheel prefix="right_front" parent="base_link">
+    <origin xyz="0.13 -0.13 0.04" rpy="1.57 0 0.785" />
+    <axis xyz="0 0 -1" />
+  </xacro:wheel>
+  
+  <xacro:wheel prefix="left_front" parent="base_link">
+    <origin xyz="0.13 0.13 0.04" rpy="-1.57 0 -0.785" />
+    <axis xyz="0 0 1" />
+  </xacro:wheel>
+  
+  <xacro:wheel prefix="right_back" parent="base_link">
+    <origin xyz="-0.13 -0.13 0.04" rpy="-1.57 0 -0.785" />
+    <axis xyz="0 0 1" />
+  </xacro:wheel>
+
+  <xacro:wheel prefix="left_back" parent="base_link">
+    <origin xyz="-0.13 0.13 0.04" rpy="-1.57 0 0.785" />
+    <axis xyz="0 0 1" />
+  </xacro:wheel>
+
+  <xacro:lidar parent="base_link">
+    <!--origin xyz="0.0 0.0 0.2" rpy="1.57 0.0 0.0" /-->
+    <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0" />
+  </xacro:lidar>
+  
+  <xacro:astra parent="base_link">
+    <origin xyz="0.1 0.0 0.12" rpy="2.9 0.0 1.57" />
+  </xacro:astra>
+  
+</robot>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>       
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="lidar" params="parent *joint_origin">
+    <joint name="lidar_joint" type="fixed">
+      <xacro:insert_block name="joint_origin"/>
+      <parent link="${parent}"/>    
+      <child link="laser"/>
+    </joint>
+    
+    <link name="laser">
+      <visual>
+        <origin xyz="0 0 0" rpy="1.57 0 0" />
+        <geometry>
+          <mesh filename="package://patin_description/model/lidar.dae"/>
+        </geometry>
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>

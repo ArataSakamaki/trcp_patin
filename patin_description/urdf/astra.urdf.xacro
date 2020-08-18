@@ -1,0 +1,19 @@
+<?xml version="1.0"?>       
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="astra" params="parent *joint_origin">
+    <joint name="astra_joint" type="fixed">
+      <xacro:insert_block name="joint_origin"/>
+      <parent link="${parent}"/>    
+      <child link="astra"/>
+    </joint>
+    
+    <link name="astra">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://patin_description/model/astra.dae"/>
+        </geometry>
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>

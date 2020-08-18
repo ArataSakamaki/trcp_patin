@@ -1,0 +1,26 @@
+<launch>
+
+  <arg name="urg_port" value="/dev/ttyACM0" />
+  <arg name="urg_ip" value="10.255.255.4" />
+
+  <!-- run driver node -->
+  <node pkg="patin_controller" name="patin_controller" type="patin_controller_node.py"/>
+
+  <!-- run urg node -->
+  <node pkg="urg_node" name="urg_node" type="urg_node">
+    <param name="serial_port" value="$(arg urg_port)" />
+    <!--param name="ip_address" value="$(arg urg_ip)" /-->
+    <!--param name="angle_min" value="-1.90" /-->
+    <!--param name="angle_max" value="1.90" /-->
+  </node>
+
+  <!-- load robot model -->
+  <include file="$(find patin_description)/launch/model.launch"/>
+
+  <!-- run joy node -->
+  <node pkg="joy" name="joy_node" type="joy_node"/>
+
+  <!-- run teleop node -->
+  <node pkg="patin_teleop" name="patin_teleop_node" type="patin_teleop_node"/>
+
+</launch>
