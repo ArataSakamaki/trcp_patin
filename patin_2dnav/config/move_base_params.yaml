@@ -24,7 +24,7 @@ NavfnROS:
 # Local planner
 DWAPlannerROS:
   acc_lim_x: 10.0
-  acc_lim_y: 0
+  acc_lim_y: 10.0
   acc_lim_theta: 10.0
 
   max_trans_vel: 2.0
@@ -34,7 +34,7 @@ DWAPlannerROS:
 
   max_vel_x: 2.0
   min_vel_x: 0.0
-  max_vel_y: 0.0
+  max_vel_y: 2.0
   min_vel_y: 0.0
 
   yaw_goal_tolerance: 0.10
@@ -60,4 +60,3 @@ DWAPlannerROS:
   oscillation_reset_dist: 0.05
 
   prune_plan: true
-
