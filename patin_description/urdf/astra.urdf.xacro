@@ -4,12 +4,12 @@
     <joint name="astra_joint" type="fixed">
       <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>    
-      <child link="astra"/>
+      <child link="camera_link"/>
     </joint>
     
-    <link name="astra">
+    <link name="camera_link">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 -1.57" />
         <geometry>
           <mesh filename="package://patin_description/model/astra.dae"/>
         </geometry>

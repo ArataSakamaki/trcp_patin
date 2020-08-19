@@ -44,7 +44,7 @@
   </xacro:lidar>
   
   <xacro:astra parent="base_link">
-    <origin xyz="0.1 0.0 0.12" rpy="2.9 0.0 1.57" />
+    <origin xyz="0.1 0.0 0.12" rpy="0.0 -0.24 0.0" />
   </xacro:astra>
   
 </robot>
